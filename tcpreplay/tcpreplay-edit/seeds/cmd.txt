@@ -1,0 +1,5 @@
+tcpreplay-edit -r 80:84 -s 20 -b -C -m 1500 -P --oneatatime -i $INTERFACE npd_get_ipv6_I4proto
+tcpreplay-edit -r 80:84 -s 20 -b -C -m 1500 -P --oneatatime -i $INTERFACE npd_get_layer4_v6
+tcpreplay-edit -r 80:84 -s 20 -b -C -m 1500 -P --oneatatime -i $INTERFACE hbo_do_checksum_tcp_thsum_structure
+tcpreplay-edit --portmap=80:8000 --seed=10 --cachefile=example.cache --intf1=eno1 --intf2=eno3 --decode=some --preload-pcap --verbose hbo_csum_replace4
+tcpreplay-edit --cachefile=example.cache --intf1=ens33 --intf2=lo --enet-vlan=add --enet-vlan-tag=40 hbo_dlt_en10mb_encode
